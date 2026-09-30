@@ -1,0 +1,15 @@
+[Unit]
+Description=Little World persistent self-driving simulation
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/little-world
+ExecStart=/usr/bin/python3 %h/little-world/server.py
+Environment=HOST=0.0.0.0
+Environment=PORT=8799
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target
